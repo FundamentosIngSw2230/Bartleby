@@ -15,7 +15,7 @@ public class Main {
             Class.forName("com.mysql.jdbc.Driver");
             Connection connection = DriverManager.getConnection(url,user,password);
             System.out.println("successfully connected to the database "+url);
-            String query ="Insert into bartleby.carta(idcarta,direccionEntrega,tipoServicio,owner) values (101,'cra 123 #45-67','0',102)";
+            String query ="Insert into bartleby.carta(idcarta,direccionEntrega,tipoServicio,owner) values (105,'cll 34 cra 56','1',222)";
             Statement statement = connection.createStatement();
 
             statement.executeUpdate(query);
