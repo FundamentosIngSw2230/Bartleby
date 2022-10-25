@@ -6,6 +6,7 @@ import java.sql.Statement;
 
 public class Main {
     public static void main(String[] args) {
+
         String url = "jdbc:mysql://localhost:3306/bartleby";
         String user ="root";
         String password ="PHSGOMNYDLHSLWTW";
