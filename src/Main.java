@@ -26,37 +26,11 @@ public class Main extends Application {
     public static void main(String[] args) {
 
         launch(args);
+
         List<Carta> letterList = new ArrayList<Carta>();
-
-        Connection con = DBconnection.getCon();
-
-        try{
-            String query = "select * from carta";
-
-            Statement statement = con.createStatement();
-            ResultSet resultSet = statement.executeQuery(query);
+        int i=0;
 
 
-
-
-            while(resultSet.next()){
-
-                //System.out.println(resultSet.getString(1)+" "+resultSet.getString(2)+" "+resultSet.getString(3)+" "+resultSet.getString(4));
-
-                Carta carta = new Carta();
-                carta.setIdentificador(Integer.parseInt(resultSet.getString(1)));
-                carta.setDireccionEntrega(resultSet.getString(2));
-                carta.setTipoServicio(resultSet.getString(3));
-                carta.setOwner(Integer.parseInt(resultSet.getString(4)));
-
-                letterList.add(carta);
-
-
-            }
-
-        }catch (Exception e){
-            System.out.println("Error en la conexion con la base de datos");
-        }
 
 
     }

@@ -6,7 +6,6 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #73c6d6;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.InterfaceController">
    <children>
       <Pane prefHeight="68.0" prefWidth="600.0" style="-fx-background-color: #ebdc60; -fx-border-color: #ffffff;" />
@@ -15,9 +14,10 @@
             <Font size="17.0" />
          </font>
       </Label>
-      <Button layoutX="245.0" layoutY="206.0" mnemonicParsing="false" onAction="#switchtoAgentMenu" text="Agente de oficina" />
-      <Button layoutX="245.0" layoutY="246.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="112.0" text="Planificador" />
-      <Button layoutX="247.0" layoutY="289.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" text="Cliente" />
-      <Button layoutX="244.0" layoutY="328.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="112.0" text="Alcalde" />
+      <Button layoutX="247.0" layoutY="188.0" mnemonicParsing="false" onAction="#switchtoAgentMenu" text="Agente de oficina" />
+      <Button layoutX="246.0" layoutY="221.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="112.0" text="Planificador" />
+      <Button layoutX="247.0" layoutY="254.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" text="Cliente" />
+      <Button layoutX="244.0" layoutY="288.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="112.0" text="Alcalde" />
+      <Button layoutX="245.0" layoutY="324.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="112.0" text="cartero" />
    </children>
 </AnchorPane>

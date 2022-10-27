@@ -1,15 +1,16 @@
 package entities;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import controllers.DBcontroller;
+
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DBconnection {
 
     static Connection con = null;
 
-    private DBconnection (){
+    public DBconnection (){
 
     }
 
@@ -18,6 +19,7 @@ public class DBconnection {
         String url = "jdbc:mysql://localhost:3306/bartleby";
         String user ="root";
         String password ="PHSGOMNYDLHSLWTW";
+
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -33,8 +35,13 @@ public class DBconnection {
         return con;
     }
 
+    public void InitialReading() {
 
+        List<Carta> letterList = new ArrayList<Carta>();
+        DBcontroller control = new DBcontroller();
 
+        control.FirstReading(letterList);
 
+    }
 
 }

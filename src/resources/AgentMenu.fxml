@@ -16,6 +16,6 @@
          </font>
       </Label>
       <Button layoutX="86.0" layoutY="213.0" mnemonicParsing="false" onAction="#switchtoAgentInventario" text="revisar el inventario de las cartas" />
-      <Button layoutX="432.0" layoutY="326.0" mnemonicParsing="false" onAction="#switchtoMenu" text="Regresar a menu inicial" />
+      <Button layoutX="432.0" layoutY="326.0" mnemonicParsing="false" onAction="#switchtoMenu2" text="Regresar a menu inicial" />
    </children>
 </AnchorPane>
