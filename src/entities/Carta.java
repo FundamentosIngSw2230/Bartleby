@@ -4,8 +4,9 @@ public class Carta {
 
     private int identificador;
     private String direccionEntrega;
-    private char tipoServicio;
+    private String tipoServicio;
     private int owner;
+    private int disponibilidadEntrega;
 
     public Carta() { }
 
@@ -25,11 +26,11 @@ public class Carta {
         this.direccionEntrega = direccionEntrega;
     }
 
-    public char getTipoServicio() {
+    public String getTipoServicio() {
         return tipoServicio;
     }
 
-    public void setTipoServicio(char tipoServicio) {
+    public void setTipoServicio(String tipoServicio) {
         this.tipoServicio = tipoServicio;
     }
 
@@ -39,5 +40,13 @@ public class Carta {
 
     public void setOwner(int owner) {
         this.owner = owner;
+    }
+
+    public int getDisponibilidadEntrega() {
+        return disponibilidadEntrega;
+    }
+
+    public void setDisponibilidadEntrega(int disponibilidadEntrega) {
+        this.disponibilidadEntrega = disponibilidadEntrega;
     }
 }

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #73c6d6;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.InterfaceController">
+   <children>
+      <Pane prefHeight="68.0" prefWidth="600.0" style="-fx-background-color: #ebdc60; -fx-border-color: #ffffff;" />
+      <Label layoutX="38.0" layoutY="96.0" text="INGRESO DE CARTA" textFill="WHITE">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="68.0" layoutY="158.0" text="direccion de entrega:" />
+      <TextField layoutX="198.0" layoutY="154.0" prefHeight="25.0" prefWidth="188.0" />
+      <Label layoutX="77.0" layoutY="204.0" text="servicio de entrega:" />
+      <TextField layoutX="198.0" layoutY="200.0" prefHeight="25.0" prefWidth="188.0" />
+      <Button layoutX="439.0" layoutY="308.0" mnemonicParsing="false" text="almacenar carta" />
+      <Label layoutX="46.0" layoutY="254.0" text="identificador de ususario:" />
+      <TextField layoutX="198.0" layoutY="250.0" prefHeight="25.0" prefWidth="188.0" />
+      <TextField layoutX="198.0" layoutY="295.0" prefHeight="25.0" prefWidth="188.0" />
+      <Label layoutX="19.0" layoutY="299.0" text="disponibilidad para la entrega:" />
+      <Button layoutX="458.0" layoutY="347.0" mnemonicParsing="false" onAction="#switchtoAgentMenu" text="Regresar" />
+   </children>
+</AnchorPane>
