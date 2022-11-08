@@ -40,7 +40,7 @@ public class DBconnection {
         List<Carta> letterList = new ArrayList<Carta>();
         DBcontroller control = new DBcontroller();
 
-        control.FirstReading(letterList);
+        letterList = control.FirstReading(letterList);
 
     }
 

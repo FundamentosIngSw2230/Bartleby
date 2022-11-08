@@ -16,8 +16,6 @@ import java.awt.*;
 import java.io.IOException;
 
 public class InterfaceController {
-
-    int cont=106;
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -86,18 +84,22 @@ public class InterfaceController {
 
     public void AgregarCarta(javafx.event.ActionEvent event) throws IOException{
 
-        Carta carta = new Carta();
+        int idanterior =0;
 
-        carta.setIdentificador(cont);
+        Carta carta = new Carta();
+        Planificacion plan = new Planificacion();
+
+        idanterior = plan.findId();
+
+        carta.setIdentificador(idanterior+1);
         carta.setDireccionEntrega(direccion.getText());
         carta.setTipoServicio(service.getText());
         carta.setOwner(Integer.parseInt(idusuario.getText()));
         carta.setDisponibilidadEntrega(Integer.parseInt(dispo.getText()));
 
-        Planificacion plan = new Planificacion();
+
 
         plan.agregarCarta(carta);
-        cont++;
 
     }
 

@@ -38,4 +38,12 @@ public class Planificacion {
 
 
     }
+
+    public int findId(){
+        int idant = 0;
+        DBcontroller ctrl = new DBcontroller();
+        idant = ctrl.findIdentifcador();
+
+        return idant;
+    }
 }

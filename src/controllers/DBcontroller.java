@@ -3,6 +3,7 @@ package controllers;
 import entities.Carta;
 import entities.DBconnection;
 
+import javax.swing.plaf.nimbus.State;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -13,11 +14,11 @@ public class DBcontroller {
 
     List<Carta> letterList = new ArrayList<Carta>();
 
-    public void FirstReading(List<Carta> letterList){
+    public List<Carta> FirstReading(List<Carta> letterList){
 
         Connection con = DBconnection.getCon();
         try {
-            String query = "select * from carta";
+            String query = "select * from bartleby.carta";
 
             Statement statement = con.createStatement();
             ResultSet resultSet = statement.executeQuery(query);
@@ -39,21 +40,48 @@ public class DBcontroller {
         } catch (Exception e) {
             System.out.println("Error en la conexion con la base de datos");
         }
+
+        return letterList;
+    }
+
+    public int findIdentifcador(){
+
+        Connection con = DBconnection.getCon();
+        int id=0;
+
+        try {
+
+            System.out.println("Entro en try");
+            String idquery = "SELECT * from bartleby.carta ORDER BY idcarta DESC LIMIT 1";
+            Statement statement = con.createStatement();
+            ResultSet resultSet = statement.executeQuery(idquery);
+
+            while(resultSet.next()){
+                id = Integer.parseInt(resultSet.getString(1));
+            }
+
+        } catch (Exception e) {
+            System.out.println("Error en la conexion con la base de datos");
+            System.out.println("error en find");
+        }
+        return id;
+
     }
     public void AnadirCartaDB(Carta carta) {
 
         String direccion = carta.getDireccionEntrega();
-        String identificador = Integer.toString(carta.getIdentificador());
-        String owner = Integer.toString(carta.getOwner());
+        int identificador = carta.getIdentificador();
+        int owner = carta.getOwner();
         String servicio = carta.getTipoServicio();
 
         Connection con = DBconnection.getCon();
         try {
 
-            String query = "insert into bartleby.carta(idcarta,direccionEntrega,tipoServicio,owner) values("+identificador+","+direccion+","+servicio+","+owner+")";
+
+            String query = "insert into bartleby.carta(idcarta,direccionEntrega,tipoServicio,owner) values("+identificador+",'"+direccion+"','"+servicio+"','"+owner+"')";
             System.out.println(query);
             Statement statement = con.createStatement();
-            ResultSet resultSet = statement.executeQuery(query);
+            statement.executeUpdate(query);
 
         } catch (Exception e) {
             System.out.println("Error en la conexion con la base de datos");
