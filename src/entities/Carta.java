@@ -1,12 +1,15 @@
 package entities;
 
+import java.time.LocalDate;
+import java.util.Date;
+
 public class Carta {
 
     private int identificador;
     private String direccionEntrega;
     private String tipoServicio;
     private int owner;
-    private int disponibilidadEntrega;
+    private LocalDate disponibilidadEntrega;
 
     public Carta() { }
 
@@ -42,11 +45,11 @@ public class Carta {
         this.owner = owner;
     }
 
-    public int getDisponibilidadEntrega() {
+    public LocalDate getDisponibilidadEntrega() {
         return disponibilidadEntrega;
     }
 
-    public void setDisponibilidadEntrega(int disponibilidadEntrega) {
+    public void setDisponibilidadEntrega(LocalDate disponibilidadEntrega) {
         this.disponibilidadEntrega = disponibilidadEntrega;
     }
 }

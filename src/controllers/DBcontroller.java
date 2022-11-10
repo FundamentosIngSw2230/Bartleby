@@ -7,7 +7,9 @@ import javax.swing.plaf.nimbus.State;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class DBcontroller {
@@ -73,12 +75,12 @@ public class DBcontroller {
         int identificador = carta.getIdentificador();
         int owner = carta.getOwner();
         String servicio = carta.getTipoServicio();
+        LocalDate fecha = carta.getDisponibilidadEntrega();
 
         Connection con = DBconnection.getCon();
         try {
 
-
-            String query = "insert into bartleby.carta(idcarta,direccionEntrega,tipoServicio,owner) values("+identificador+",'"+direccion+"','"+servicio+"','"+owner+"')";
+            String query = "insert into bartleby.carta(idcarta,direccionEntrega,tipoServicio,owner,disponibilidadEntrega) values("+identificador+",'"+direccion+"','"+servicio+"',"+owner+",'"+fecha+"')";
             System.out.println(query);
             Statement statement = con.createStatement();
             statement.executeUpdate(query);
