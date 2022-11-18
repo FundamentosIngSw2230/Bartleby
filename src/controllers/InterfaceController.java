@@ -15,7 +15,6 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.stage.Stage;
 import javafx.scene.control.TextField;
-
 import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
@@ -37,7 +36,7 @@ public class InterfaceController {
     @FXML
     private DatePicker dispo;
     @FXML
-    private ChoiceBox<String> cbServicio = new ChoiceBox<>();
+    private TextField tipoServicio;
 
     public  void switchtoMenu(javafx.event.ActionEvent event) throws IOException {
 
@@ -74,10 +73,15 @@ public class InterfaceController {
     }
     public  void switchtoAgent(javafx.event.ActionEvent event) throws IOException {
 
-        ObservableList<String> list = cbServicio.getItems();
-        list.addAll("normal","express");
-
         Parent root = FXMLLoader.load(getClass().getResource("../resources/Agent.fxml"));
+        /*
+        ObservableList<String> list = cbServicio.getItems();
+        String a ="normal";
+        String b = "express";
+        System.out.println(list.size());
+        list.addAll(a,b);
+        System.out.println(list.size());
+         */
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 
         scene = new Scene(root);
@@ -106,7 +110,7 @@ public class InterfaceController {
         idanterior = plan.findId();
         carta.setIdentificador(idanterior+1);
         carta.setDireccionEntrega(direccion.getText());
-        carta.setTipoServicio(cbServicio.getValue());
+        carta.setTipoServicio(tipoServicio.getText());
         carta.setOwner(Integer.parseInt(idusuario.getText()));
         LocalDate fecha = dispo.getValue();
         carta.setDisponibilidadEntrega(LocalDate.parse(fecha.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))));
