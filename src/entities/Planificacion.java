@@ -1,11 +1,8 @@
 package entities;
 
 import controllers.DBcontroller;
-import controllers.InterfaceController;
-import entities.Carta;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 public class Planificacion {
@@ -18,6 +15,9 @@ public class Planificacion {
 
     public List<Carta> getCartas() {
         return cartas;
+    }
+    public void setCartas(List<Carta> cartas) {
+        this.cartas = cartas;
     }
 
     public void setCartas(ArrayList<Carta> cartas) {
@@ -34,8 +34,6 @@ public class Planificacion {
         cartas.add(carta);
 
         db.AnadirCartaDB(carta);
-
-
 
     }
 

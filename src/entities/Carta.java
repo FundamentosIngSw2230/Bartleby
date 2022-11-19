@@ -11,7 +11,16 @@ public class Carta {
     private int owner;
     private LocalDate disponibilidadEntrega;
 
-    public Carta() { }
+    public Carta() {
+    }
+
+    public Carta(int identificador,String direccionEntrega, String tipoServicio,int owner, LocalDate disponibilidadEntrega) {
+        this.identificador = identificador;
+        this.direccionEntrega = direccionEntrega;
+        this.tipoServicio = tipoServicio;
+        this.owner = owner;
+        this.disponibilidadEntrega = disponibilidadEntrega;
+    }
 
     public int getIdentificador() {
         return identificador;
@@ -52,4 +61,6 @@ public class Carta {
     public void setDisponibilidadEntrega(LocalDate disponibilidadEntrega) {
         this.disponibilidadEntrega = disponibilidadEntrega;
     }
+
+
 }

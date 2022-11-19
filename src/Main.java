@@ -7,34 +7,30 @@ import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
+
+import java.lang.reflect.InvocationTargetException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Main extends Application {
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage stage) throws Exception{
 
-        Parent homeRoot = FXMLLoader.load(getClass().getResource("resources/Inicio.fxml"));
-        primaryStage.setTitle("Bartleby");
-        Scene home = new Scene(homeRoot);
+        Parent root = FXMLLoader.load(getClass().getResource("resources/Inicio.fxml"));
+        Scene scene = new Scene(root);
 
-        primaryStage.setScene(home);
-        primaryStage.show();
+        stage.setScene(scene);
+        stage.show();
 
     }
     public static void main(String[] args) {
 
-        launch(args);
-
-        List<Carta> letterList = new ArrayList<Carta>();
-        int i=0;
-
-
-
+            launch(args);
 
     }
 

@@ -2,6 +2,7 @@ package controllers;
 
 import entities.Carta;
 import entities.DBconnection;
+import javafx.collections.ObservableList;
 
 import javax.swing.plaf.nimbus.State;
 import java.sql.Connection;
@@ -91,4 +92,6 @@ public class DBcontroller {
 
 
     }
+
+
 }
