@@ -32,8 +32,16 @@ public class Planificacion {
 
         DBcontroller db = new DBcontroller();
         cartas.add(carta);
+        cantiCartas++;
 
         db.AnadirCartaDB(carta);
+
+    }
+
+    public void OrganizarCartas(){
+
+
+
 
     }
 
