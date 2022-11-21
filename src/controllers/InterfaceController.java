@@ -14,9 +14,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import org.w3c.dom.Text;
 
@@ -64,26 +66,20 @@ public class InterfaceController implements Initializable{
     private TextField serviceCartaBusq;
     @FXML
     private TextField dispoCartaBusq;
-
     @FXML
     private Label errorInfoCarta;
-
     @FXML
-    private TableView<Carta> tableCartas;
-    @FXML
-    private TableColumn columnID;
-    @FXML
-    private TableColumn columnDir;
-    @FXML
-    private TableColumn columnService;
-    @FXML
-    private TableColumn columnOwner;
-    @FXML
-    private TableColumn columnDispo;
+    private TextArea cartasPlanificadas;
     @FXML
     private AnchorPane infoCarta;
-
-    private ObservableList<Carta> tableData;
+    @FXML
+    private DatePicker planDate;
+    @FXML
+    private ListView  cartasView = new ListView();
+    @FXML
+    private Pane listaPane;
+    Planificacion plan = new Planificacion();
+    int cont=0;
 
 
     public  void switchtoMenu(javafx.event.ActionEvent event) throws IOException {
@@ -159,6 +155,15 @@ public class InterfaceController implements Initializable{
         stage.show();
     }
 
+    public void switchtoPlannerPlanning(javafx.event.ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../resources/PlannerPlanning.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
     public void AgregarCarta(javafx.event.ActionEvent event) throws IOException, ParseException {
 
         int idanterior =0;
@@ -222,6 +227,45 @@ public class InterfaceController implements Initializable{
         dispoCartaBusq.setText(String.valueOf(dispo));
 
         infoCarta.setVisible(true);
+
+    }
+
+    public void fechaPlaneacion(javafx.event.ActionEvent event){
+
+        LocalDate fecha = planDate.getValue();
+        Connection con = DBconnection.getCon();
+        cartasView.getItems().clear();
+
+        try {
+            pst = con.prepareStatement("SELECT * FROM bartleby.carta");
+            rs = pst.executeQuery();
+            while(rs.next()){
+
+                System.out.println(fecha);
+                System.out.println(rs.getString(5));
+                if(fecha.equals(LocalDate.parse(rs.getString(5)))){
+
+                    Carta carta = new Carta(Integer.parseInt(rs.getString(1)),rs.getString(2),rs.getString(3),Integer.parseInt(rs.getString(4)),LocalDate.parse(rs.getString(5)));
+                    cartasView.getItems().add(rs.getString(2));
+                    cont++;
+
+                    plan.agregarAPlan(carta);
+
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    public void planificarRuta(javafx.event.ActionEvent event){
+
+        boolean aja=false;
+
+        String ruta = cartasPlanificadas.getText();
+
+        plan.OrganizarCartas(ruta);
 
     }
 

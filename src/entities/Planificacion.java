@@ -1,7 +1,9 @@
 package entities;
 
 import controllers.DBcontroller;
+import controllers.InterfaceController;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +11,8 @@ public class Planificacion {
 
     private int cantiCartas;
     private List<Carta> cartas = new ArrayList<Carta>();
+
+    String direcciones[] = null;
 
     public Planificacion() {
     }
@@ -24,24 +28,25 @@ public class Planificacion {
         this.cartas = cartas;
     }
 
-    public void organizarCartas(ArrayList<Carta> cartas){
-
-    }
-
     public void agregarCarta(Carta carta) {
 
         DBcontroller db = new DBcontroller();
-        cartas.add(carta);
-        cantiCartas++;
-
         db.AnadirCartaDB(carta);
-
     }
 
-    public void OrganizarCartas(){
+
+    public void OrganizarCartas(String ruta){
+
+        direcciones = ruta.split("\n");
+        Envio ev = new Envio();
+
+        ev.recibirRuta(direcciones);
 
 
+    }
+    public void agregarAPlan(Carta current_carta){
 
+        cartas.add(current_carta);
 
     }
 

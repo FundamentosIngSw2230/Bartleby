@@ -35,7 +35,7 @@ public class DBcontroller {
                 carta.setDireccionEntrega(resultSet.getString(2));
                 carta.setTipoServicio(resultSet.getString(3));
                 carta.setOwner(Integer.parseInt(resultSet.getString(4)));
-
+                carta.setDisponibilidadEntrega(LocalDate.parse(resultSet.getString(5)));
                 letterList.add(carta);
 
             }
