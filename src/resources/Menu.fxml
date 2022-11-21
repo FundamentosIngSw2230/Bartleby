@@ -18,6 +18,6 @@
       <Button layoutX="246.0" layoutY="221.0" mnemonicParsing="false" onAction="#switchtoPlannerMenu" prefHeight="25.0" prefWidth="112.0" text="Planificador" />
       <Button layoutX="247.0" layoutY="254.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" text="Cliente" />
       <Button layoutX="244.0" layoutY="288.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="112.0" text="Alcalde" />
-      <Button layoutX="245.0" layoutY="324.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="112.0" text="cartero" />
+      <Button layoutX="245.0" layoutY="324.0" mnemonicParsing="false" onAction="#switchtoJaimitoMenu" prefHeight="25.0" prefWidth="112.0" text="cartero" />
    </children>
 </AnchorPane>

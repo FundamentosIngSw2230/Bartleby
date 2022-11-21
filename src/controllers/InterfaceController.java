@@ -164,6 +164,16 @@ public class InterfaceController implements Initializable{
         stage.show();
     }
 
+    public void switchtoJaimitoMenu(javafx.event.ActionEvent event) throws IOException {
+
+        Parent root = FXMLLoader.load(getClass().getResource("../resources/JaimitoMenu.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
+    }
     public void AgregarCarta(javafx.event.ActionEvent event) throws IOException, ParseException {
 
         int idanterior =0;
