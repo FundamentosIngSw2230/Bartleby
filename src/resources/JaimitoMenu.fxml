@@ -18,8 +18,8 @@
             <Font name="Berlin Sans FB Demi Bold" size="24.0" />
          </font>
       </Label>
-      <Button layoutX="324.0" layoutY="188.0" mnemonicParsing="false" text="Entregar carta" />
-      <TextField layoutX="324.0" layoutY="145.0" promptText="id de carta a entregar" />
+      <Button layoutX="324.0" layoutY="188.0" mnemonicParsing="false" onAction="#entregarCarta" text="Entregar carta" />
+      <TextField fx:id="idEntrega" layoutX="324.0" layoutY="145.0" promptText="id de carta a entregar" />
       <Button layoutX="51.0" layoutY="351.0" mnemonicParsing="false" onAction="#mostrarDirdeRuta" text="mostrar ruta para entrega de cartas" />
    </children>
 </AnchorPane>

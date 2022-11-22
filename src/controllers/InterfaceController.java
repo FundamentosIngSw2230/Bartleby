@@ -80,6 +80,8 @@ public class InterfaceController implements Initializable{
     private Pane listaPane;
     @FXML
     private ListView rutaView = new ListView();
+    @FXML
+    private TextField idEntrega;
 
     Planificacion plan = new Planificacion();
     int cont=0;
@@ -279,14 +281,37 @@ public class InterfaceController implements Initializable{
 
     public void mostrarDirdeRuta(javafx.event.ActionEvent event){
 
+        rutaView.getItems().clear();
+
         Envio ev = Envio.getInstance();
 
         for(int i=0; i < ev.getCartasEnvio().size(); i++){
             rutaView.getItems().add(ev.getCartasEnvio().get(i).getDireccionEntrega());
         }
 
+    }
+
+    public void entregarCarta(javafx.event.ActionEvent event){
+
+        Envio env = Envio.getInstance();
+
+        for(int i=0; i < env.getCartasEnvio().size();i++){
+
+            if(env.getCartasEnvio().get(i).getIdentificador() == Integer.parseInt(idEntrega.getText())){
+                rutaView.getItems().remove(i);
+            }
+        }
+
+
+
+
+
+
+
 
     }
+
+
 
 
 }
