@@ -13,11 +13,6 @@ public class BartlebyTest {
     public void clear(){
     }
 
-    @Test
-    public void OrganizarCartasIsDivisionOftheRouteString(){
 
-
-
-    }
 
 }

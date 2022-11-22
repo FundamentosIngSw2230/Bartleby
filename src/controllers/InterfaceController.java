@@ -69,9 +69,15 @@ public class InterfaceController implements Initializable{
     @FXML
     private Label errorInfoCarta;
     @FXML
+    private TextField total;
+    @FXML
     private TextArea cartasPlanificadas;
     @FXML
     private AnchorPane infoCarta;
+    @FXML
+    private TextField horas;
+    @FXML
+    private TextField clients;
     @FXML
     private AnchorPane infoEstado;
     @FXML
@@ -185,6 +191,17 @@ public class InterfaceController implements Initializable{
         stage.show();
 
     }
+
+    public void switchToEstimacionMenu(javafx.event.ActionEvent event) throws IOException {
+
+        Parent root = FXMLLoader.load(getClass().getResource("../resources/Estimacion.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
+    }
     public void AgregarCarta(javafx.event.ActionEvent event) throws IOException, ParseException {
 
         int idanterior =0;
@@ -277,6 +294,21 @@ public class InterfaceController implements Initializable{
 
     }
 
+    public void estimacion(javafx.event.ActionEvent event){
+
+        int hrs, cli;
+
+        hrs = Integer.parseInt(horas.getText());
+        cli = Integer.parseInt(clients.getText());
+
+        int answ = calculo(hrs, cli);
+
+        total.setText(String.valueOf(answ));
+        total.setVisible(true);
+
+
+    }
+
     public void planificarRuta(javafx.event.ActionEvent event){
 
         String ruta = cartasPlanificadas.getText();
@@ -330,6 +362,12 @@ public class InterfaceController implements Initializable{
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+
+    }
+
+    public int calculo(int hrs, int cli){
+
+        return(hrs/cli);
 
     }
 
