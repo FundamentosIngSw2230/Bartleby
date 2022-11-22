@@ -8,8 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Planificacion {
-
-    private int cantiCartas;
     private List<Carta> cartas = new ArrayList<Carta>();
 
     String direcciones[] = null;

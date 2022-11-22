@@ -70,20 +70,5 @@ public class Envio {
         }
 
     }
-    public String estadoCarta(int e){
-
-        String estado = "en entrega";
-
-        if(e == 0){
-            estado = "no entregada";
-
-        }else if(e == 1){
-            estado = "entregada";
-        }
-
-        return estado;
-
-
-    }
 
 }
