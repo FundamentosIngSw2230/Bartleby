@@ -14,28 +14,56 @@ public class Envio {
     private int estado;
     private int tiempoTotal;
     List<Carta> cartasEnvio = new ArrayList<Carta>();
+
+    private static Envio instance;
+
+    private Envio()
+    {
+        // private constructor
+    }
+
+    //method to return instance of class
+    public static Envio getInstance()
+    {
+        if (instance == null)
+        {
+            // if instance is null, initialize
+            instance = new Envio();
+        }
+        return instance;
+    }
+
+
+    public List<Carta> getCartasEnvio() {
+        return cartasEnvio;
+    }
+
     public void recibirRuta(String[] ruta){
 
 
         Connection con = DBconnection.getCon();
-        Carta carta = new Carta();
+
         try {
             PreparedStatement pst = con.prepareStatement("SELECT * FROM bartleby.carta");
             ResultSet rs = pst.executeQuery();
-            while(rs.next()){
-                for (String a : ruta){
 
-                    if(a == rs.getString(5)){
+            for (String a : ruta){
+                System.out.println(a);
+                rs.beforeFirst();
+                while (rs.next()){
+
+                    System.out.println("repito");
+
+                    if(a.equals(rs.getString(2))){
+                        Carta carta = new Carta();
                         carta.setIdentificador(Integer.parseInt(rs.getString(1)));
                         carta.setDireccionEntrega(rs.getString(2));
                         carta.setTipoServicio(rs.getString(3));
                         carta.setOwner(Integer.parseInt(rs.getString(4)));
                         carta.setDisponibilidadEntrega(LocalDate.parse(rs.getString(5)));
-
                         cartasEnvio.add(carta);
 
                     }
-
                 }
 
             }
@@ -43,11 +71,9 @@ public class Envio {
             throw new RuntimeException(e);
         }
 
-
-
+    }
+    public void EntregarCarta(){
 
     }
-    public void EntregarCarta(int tiempo, int estado){
 
-    }
 }

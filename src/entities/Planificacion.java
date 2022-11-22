@@ -38,7 +38,8 @@ public class Planificacion {
     public void OrganizarCartas(String ruta){
 
         direcciones = ruta.split("\n");
-        Envio ev = new Envio();
+
+        Envio ev = Envio.getInstance();
 
         ev.recibirRuta(direcciones);
 

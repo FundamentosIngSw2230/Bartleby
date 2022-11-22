@@ -2,6 +2,7 @@ package controllers;
 
 import entities.Carta;
 import entities.DBconnection;
+import entities.Envio;
 import entities.Planificacion;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -34,9 +35,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
-import java.util.Objects;
-import java.util.ResourceBundle;
+import java.util.*;
+import java.util.List;
 
 public class InterfaceController implements Initializable{
 
@@ -78,6 +78,9 @@ public class InterfaceController implements Initializable{
     private ListView  cartasView = new ListView();
     @FXML
     private Pane listaPane;
+    @FXML
+    private ListView rutaView = new ListView();
+
     Planificacion plan = new Planificacion();
     int cont=0;
 
@@ -197,9 +200,6 @@ public class InterfaceController implements Initializable{
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         Connection con = DBconnection.getCon();
-        //tableData = FXCollections.observableArrayList();
-        //setCellTable();
-        //loadFromDB();
     }
 
     public void busquedaInv(javafx.event.ActionEvent event){
@@ -271,11 +271,20 @@ public class InterfaceController implements Initializable{
 
     public void planificarRuta(javafx.event.ActionEvent event){
 
-        boolean aja=false;
-
         String ruta = cartasPlanificadas.getText();
 
         plan.OrganizarCartas(ruta);
+
+    }
+
+    public void mostrarDirdeRuta(javafx.event.ActionEvent event){
+
+        Envio ev = Envio.getInstance();
+
+        for(int i=0; i < ev.getCartasEnvio().size(); i++){
+            rutaView.getItems().add(ev.getCartasEnvio().get(i).getDireccionEntrega());
+        }
+
 
     }
 
