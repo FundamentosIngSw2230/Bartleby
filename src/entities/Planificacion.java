@@ -45,9 +45,19 @@ public class Planificacion {
 
 
     }
-    public void agregarAPlan(Carta current_carta){
+    public boolean agregarAPlan(Carta current_carta){
 
         cartas.add(current_carta);
+        boolean done = false;
+
+        for(int i=0; i < cartas.size(); i++){
+            if(i == cartas.size()-1) {
+                if (current_carta.getIdentificador() == cartas.get(i).getIdentificador()) {
+                    done = true;
+                }
+            }
+        }
+        return done;
 
     }
 

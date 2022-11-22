@@ -208,7 +208,6 @@ public class InterfaceController implements Initializable{
 
         Carta carta = new Carta();
         Planificacion plan = new Planificacion();
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 
         idanterior = plan.findId();
         carta.setIdentificador(idanterior+1);
@@ -270,6 +269,7 @@ public class InterfaceController implements Initializable{
         LocalDate fecha = planDate.getValue();
         Connection con = DBconnection.getCon();
         cartasView.getItems().clear();
+        boolean agregoPlan=false;
 
         try {
             pst = con.prepareStatement("SELECT * FROM bartleby.carta");
@@ -284,7 +284,7 @@ public class InterfaceController implements Initializable{
                     cartasView.getItems().add(rs.getString(2));
                     cont++;
 
-                    plan.agregarAPlan(carta);
+                    agregoPlan = plan.agregarAPlan(carta);
 
                 }
             }
