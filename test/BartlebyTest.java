@@ -1,3 +1,4 @@
+import controllers.InterfaceController;
 import entities.Planificacion;
 import org.junit.*;
 
@@ -14,5 +15,11 @@ public class BartlebyTest {
     }
 
 
+    @Test
+    public void doceHorasySeisClientesSonDosHorasPorCliente(){
+        int ans = 2;
+
+        assertEquals(ans,InterfaceController.calculo(12,6));
+    }
 
 }

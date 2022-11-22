@@ -365,7 +365,7 @@ public class InterfaceController implements Initializable{
 
     }
 
-    public int calculo(int hrs, int cli){
+    public static int calculo(int hrs, int cli){
 
         return(hrs/cli);
 
