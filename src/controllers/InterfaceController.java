@@ -73,6 +73,10 @@ public class InterfaceController implements Initializable{
     @FXML
     private AnchorPane infoCarta;
     @FXML
+    private AnchorPane infoEstado;
+    @FXML
+    private TextField estadoCarta;
+    @FXML
     private DatePicker planDate;
     @FXML
     private ListView  cartasView = new ListView();
@@ -82,6 +86,8 @@ public class InterfaceController implements Initializable{
     private ListView rutaView = new ListView();
     @FXML
     private TextField idEntrega;
+    @FXML
+    private TextField idUsuario;
 
     Planificacion plan = new Planificacion();
     int cont=0;
@@ -294,20 +300,36 @@ public class InterfaceController implements Initializable{
     public void entregarCarta(javafx.event.ActionEvent event){
 
         Envio env = Envio.getInstance();
+        boolean existe =false;
 
         for(int i=0; i < env.getCartasEnvio().size();i++){
 
             if(env.getCartasEnvio().get(i).getIdentificador() == Integer.parseInt(idEntrega.getText())){
                 rutaView.getItems().remove(i);
+                existe = true;
             }
         }
 
 
 
+    }
 
+    public void consultarIdentificadorUser(javafx.event.ActionEvent event){
 
+        Connection con = DBconnection.getCon();
+        try {
+            pst = con.prepareStatement("SELECT * FROM bartleby.carta");
+            rs = pst.executeQuery();
+            while(rs.next()){
 
+                if(Integer.parseInt(rs.getString(4)) == Integer.parseInt(idUsuario.getText())){
+                    infoEstado.setVisible(true);
+                }
 
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 

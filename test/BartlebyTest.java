@@ -16,8 +16,7 @@ public class BartlebyTest {
     @Test
     public void OrganizarCartasIsDivisionOftheRouteString(){
 
-        boolean expected = true;
-        plan.OrganizarCartas("cra77 #19-35\ncra77 #23-55");
+
 
     }
 
